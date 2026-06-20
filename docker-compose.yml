@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - '8000:8000'
+    environment:
+      - SECRET_KEY=troque_esta_chave
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./frontend:/app
+
+# Obs: esta configuração usa SQLite local para simplicidade. Para Postgres, substitua a configuração do backend e adicione um serviço postgres.
